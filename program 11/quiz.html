@@ -1,53 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Online Quiz</title>
-</head>
-<body>
+    <body>
+        <h1><b>Online Quiz</b></h1>
+        <p>
+         1)who is the color of apple<br>
+         <input type="radio" name="q1" id="a" value="1">red<br>
+         <input type="radio" name="q1"  value="0">blue<br>
+         <input type="radio" name="q1"  value="0">black<br>
+        </p>
+        <p>
+            2)what is the biggest animal among these?<br>
+            <input type="radio" name="q2"  value="0">tiger<br>
+            <input type="radio" name="q2" id="b"  value="1">elephant<br>
+            <input type="radio" name="q2"  value="0">cat<br>
 
-<h2 style="text-align:center;">Online Quiz</h2>
+        </p>
+        <button onclick="answer()">Submit</button>
+        <p id="ans"></p>
 
-<form id="quizForm">
+        <script>
+            function answer(){
+                let score=0;
+                if (document.getElementById("a").checked ) score++;
+                if (document.getElementById("b").checked) score++;
 
-<p>1) Who is the CEO of Google?</p>
-<input type="radio" name="q1" value="0"> Elon Musk<br>
-<input type="radio" name="q1" value="1"> Sundar Pichai<br>
-<input type="radio" name="q1" value="0"> Bill Gates<br>
-<input type="radio" name="q1" value="0"> Mark Zuckerberg<br><br>
+                document.getElementById("ans").innerHTML="score" + score;
+                
+            }
 
-<p>2) What is the full form of HTML?</p>
-<input type="radio" name="q2" value="1"> Hyper Text Markup Language<br>
-<input type="radio" name="q2" value="0"> High Text Makeup Language<br>
-<input type="radio" name="q2" value="0"> Hyper Test Makeup Language<br>
-<input type="radio" name="q2" value="0"> Hyper Text Makeup Lanner<br><br>
+        </script>
 
-<p>3) What is the full form of CSS?</p>
-<input type="radio" name="q3" value="0"> Cascading Single Sheet<br>
-<input type="radio" name="q3" value="1"> Cascading Style Sheet<br>
-<input type="radio" name="q3" value="0"> Cascading Style Slip<br>
-<input type="radio" name="q3" value="0"> Casting Style Sheet<br><br>
-
-<input type="button" value="submit" onclick="checkScore()">
-
-</form>
-
-<p id="result"></p>
-
-<script>
-function checkScore() {
-    let score = 0;
-
-    let q1 = document.querySelector('input[name="q1"]:checked');
-    let q2 = document.querySelector('input[name="q2"]:checked');
-    let q3 = document.querySelector('input[name="q3"]:checked');
-
-    if (q1) score += parseInt(q1.value);
-    if (q2) score += parseInt(q2.value);
-    if (q3) score += parseInt(q3.value);
-
-    document.getElementById("result").innerHTML = "Score: " + score;
-}
-</script>
-
-</body>
-</html>
+        </p>
+    </body>
