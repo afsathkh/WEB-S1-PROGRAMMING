@@ -1,21 +1,24 @@
 <html>
 <head>
-  <title>Event Handling</title>
+<title>Simple Event Handling</title>
 </head>
 <body>
-  <center><h1>JavaScript Event Handling</h1></center>
-  <br>
-  <h3>Click on button to change background color</h3>
-  <button id="btn">Click here</button>
-  <h3 id="change"></h3>
-  <script>
-    let button = document.getElementById("btn");
-    const colors = ["yellow", "pink", "skyblue", "red"];
-    button.addEventListener("click", () => {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      document.body.style.backgroundColor = randomColor;
-      document.getElementById("change").innerHTML = "Color changed to " + randomColor;
-    });
-  </script>
+
+<h2>Click the button to change background color</h2>
+
+<button onclick="changeColor()">Click Here</button>
+
+<script>
+
+function changeColor() {
+    var colors = ["yellow", "pink", "skyblue", "red", "orange", "green", "purple", "brown", "violet", "lightgreen"];
+    var random = Math.floor(Math.random() * colors.length);
+    var selected = colors[random];
+
+    document.body.style.backgroundColor = selected;
+}
+
+</script>
+
 </body>
 </html>
